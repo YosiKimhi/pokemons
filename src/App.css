@@ -1,7 +1,7 @@
 section {
   margin: 0.5rem auto;
   width: 90%;
-  max-width: 40rem;
+  max-width: 110rem;
   text-align: center;
   background-color: white;
   padding: 0.5rem;
@@ -27,4 +27,11 @@ button:hover,
 button:active {
   background-color: #460897;
   border-color: #460897;
+}
+
+.cards{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  
 }

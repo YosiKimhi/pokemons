@@ -1,8 +1,9 @@
+import React from 'react';
 import PokemonPassport from './PokemonPassport';
 
 const Pokemons = (props) => {
   return (
-    <div>
+    <React.Fragment>
       {props.pokemons.map((pokemon) => (
         <PokemonPassport
           key={pokemon.id}
@@ -16,7 +17,7 @@ const Pokemons = (props) => {
           moves={pokemon.moves}
         />
       ))}
-    </div>
+    </React.Fragment>
   );
 };
 

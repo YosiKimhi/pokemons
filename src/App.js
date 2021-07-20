@@ -129,7 +129,7 @@ const App = () => {
         <button onClick={fetchUrls}>Fetch</button>
         <button onClick={clearPokemons}>Clear</button>
       </section>
-      <section>{content}</section>
+      <section className="cards">{content}</section>
     </React.Fragment>
   );
 };

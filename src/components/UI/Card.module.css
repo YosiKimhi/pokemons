@@ -5,6 +5,8 @@
     background-color: white;
     margin: 2rem;
     background-color: rgb(100, 7, 187);
+    flex: 2 2 10%;
+    
 }
 .card:hover{
   background-color: blueviolet;
