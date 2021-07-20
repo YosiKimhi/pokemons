@@ -1,6 +1,6 @@
 import Card from '../UI/Card';
 import classes from './PokemonPassport.module.css';
-const PokemonPassport = (props) => {
+const PokemonPassport = (props) => {  
   return (
     <Card>
       <img
@@ -9,6 +9,7 @@ const PokemonPassport = (props) => {
         alt={props.name}
       />
       <h2>{props.name}</h2>
+      <p>ID: {props.id}</p>
       <p>Height: {props.height}</p>
       <p>Weight: {props.weight}</p>
       <p>Base Exprience: {props.baseExperience}</p>

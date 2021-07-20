@@ -48,14 +48,14 @@ const App = () => {
       'electro-ball',
       'thunder-wave',
     ];
-    return (
+    let pokemonCheck =
       typeConditions.some((typeCondtion) =>
         pokemonData.types.includes(typeCondtion)
       ) &&
       movesConditions.some((moveCondition) =>
         pokemonData.moves.includes(moveCondition)
-      )
-    );
+      );
+    return pokemonCheck;
   };
 
   const fetchPokemon = async (url) => {
@@ -98,7 +98,7 @@ const App = () => {
         weight: weight,
         base_experience: base_experience,
         types: typesArray,
-        moves:movesArray
+        moves: movesArray,
       };
     } catch (error) {
       setError(error.message);
@@ -120,7 +120,7 @@ const App = () => {
   }
 
   if (error) {
-    content = <p>{error} </p>;
+    content = <p>{error}</p>;
   }
 
   return (

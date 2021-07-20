@@ -1,11 +1,12 @@
-import PokemonPassport from "./PokemonPassport";
+import PokemonPassport from './PokemonPassport';
 
 const Pokemons = (props) => {
   return (
     <div>
-      {props.pokemons.map((pokemon)=>(
+      {props.pokemons.map((pokemon) => (
         <PokemonPassport
           key={pokemon.id}
+          id={pokemon.id}
           name={pokemon.name}
           sprites={pokemon.sprites}
           height={pokemon.height}
