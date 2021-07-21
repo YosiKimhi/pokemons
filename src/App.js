@@ -46,6 +46,7 @@ const App = () => {
     } catch (error) {
       setError(error.message);
     }
+    
     setPokemons(pokemonsData.slice(0,10));
     setIsLoading(false);
   };
