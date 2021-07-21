@@ -102,7 +102,6 @@ const App = () => {
         types,
         moves,
       } = data;
-      console.log(moves);
       const typesArray = [];
       const movesArray = [];
       for (const key in types) {
@@ -111,7 +110,6 @@ const App = () => {
       for (const key in moves) {
         movesArray.push(moves[key].move.name);
       }
-      console.log(movesArray);
       pokemonData = {
         id: id,
         name: name.toUpperCase(),
