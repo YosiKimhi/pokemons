@@ -2,6 +2,17 @@ import React, { useState } from 'react';
 import Pokemons from './components/Pokemons/Pokemons';
 import LoadingSpinner from './components/UI/LoadingSpinner';
 import './App.css';
+import styled from 'styled-components/macro';
+import {movesConditions, typeConditions} from "./utils/tools";
+import RegularParticles from "./components/Particles/Particles";
+
+const CenterLoader = styled.div`
+	position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+`;
+
 const App = () => {
   const [pokemons, setPokemons] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -29,7 +40,8 @@ const App = () => {
       for (const key in loadedUrls) {
         const pokemonData = await fetchPokemon(loadedUrls[key]);
         if (checkPokemonCriterias(pokemonData)) {
-          pokemonsData.push(pokemonData);
+
+          pokemonsData.push(filterRelevantData(pokemonData));
         }
       }
     } catch (error) {
@@ -41,21 +53,33 @@ const App = () => {
   };
 
   const checkPokemonCriterias = (pokemonData) => {
-    const typeConditions = ['psychic', 'fire', 'electric'];
-    const movesConditions = [
-      'thounder-shock',
-      'quick-attack',
-      'electro-ball',
-      'thunder-wave',
-    ];
-    let pokemonCheck =
-      typeConditions.some((typeCondtion) =>
+    const conditions = typeConditions.some((typeCondtion) =>
         pokemonData.types.includes(typeCondtion)
-      ) &&
-      movesConditions.some((moveCondition) =>
+    )
+    const movies = movesConditions.some((moveCondition) =>
         pokemonData.moves.includes(moveCondition)
-      );
-    return pokemonCheck;
+    )
+
+    return conditions && movies;
+  };
+
+  const filterRelevantData = (pokemonData) => {
+
+    const relevantTypes = [];
+    pokemonData.types.forEach(item => {
+      if(typeConditions.includes(item))
+        relevantTypes.push(item)
+    })
+    pokemonData.types = [...relevantTypes]
+
+    const relevantMoves = [];
+    pokemonData.moves.forEach(item => {
+      if(movesConditions.includes(item))
+        relevantMoves.push(item)
+    })
+    pokemonData.moves = [...relevantMoves]
+
+    return pokemonData;
   };
 
   const fetchPokemon = async (url) => {
@@ -112,7 +136,7 @@ const App = () => {
   let content = <p></p>;
 
   if (isLoading) {
-    content = <LoadingSpinner />;
+    content = <CenterLoader><LoadingSpinner /></CenterLoader>;
   }
 
   if (pokemons.length > 0) {
@@ -125,6 +149,7 @@ const App = () => {
 
   return (
     <React.Fragment>
+      <RegularParticles />
       <section>
         <button onClick={fetchUrls}>Fetch</button>
         <button onClick={clearPokemons}>Clear</button>

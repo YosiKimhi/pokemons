@@ -1,11 +1,19 @@
 import React from 'react';
 import PokemonPassport from './PokemonPassport';
+import styled from "styled-components/macro";
+
+const FlexWrap = styled.div`
+	display: flex;
+    flex-wrap: wrap;
+`;
 
 const Pokemons = (props) => {
   return (
-    <React.Fragment>
-      {props.pokemons.map((pokemon) => (
+    <div>
+      <FlexWrap>
+      {props.pokemons.map((pokemon,index) => (
         <PokemonPassport
+          index={index}
           key={pokemon.id}
           id={pokemon.id}
           name={pokemon.name}
@@ -17,7 +25,8 @@ const Pokemons = (props) => {
           moves={pokemon.moves}
         />
       ))}
-    </React.Fragment>
+      </FlexWrap>
+    </div>
   );
 };
 
