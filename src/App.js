@@ -39,16 +39,14 @@ const App = () => {
       }
       for (const key in loadedUrls) {
         const pokemonData = await fetchPokemon(loadedUrls[key]);
-        if (checkPokemonCriterias(pokemonData)) {
-
-          pokemonsData.push(filterRelevantData(pokemonData));
+        if (checkPokemonCriterias(filterRelevantData(pokemonData))) {
+          pokemonsData.push(pokemonData);
         }
       }
     } catch (error) {
       setError(error.message);
     }
-
-    setPokemons(pokemonsData);
+    setPokemons(pokemonsData.slice(0,10));
     setIsLoading(false);
   };
 

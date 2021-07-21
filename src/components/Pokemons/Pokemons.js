@@ -18,8 +18,6 @@ const Pokemons = (props) => {
           id={pokemon.id}
           name={pokemon.name}
           sprites={pokemon.sprites}
-          height={pokemon.height}
-          weight={pokemon.weight}
           baseExperience={pokemon.base_experience}
           types={pokemon.types}
           moves={pokemon.moves}

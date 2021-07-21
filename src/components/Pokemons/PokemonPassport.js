@@ -12,11 +12,9 @@ const PokemonPassport = (props) => {
               />
               <h2>{props.name}</h2>
               <p>ID: {props.id}</p>
-              <p>Height: {props.height}</p>
-              <p>Weight: {props.weight}</p>
               <p>Base Exprience: {props.baseExperience}</p>
               <p>Types: {props.types.map((type) => type + ' ')}</p>
-              <p>Moves: {props.moves.map((move) => move + ' ')}</p>
+              <p>Skills: {props.moves.map((move) => move + ' ')}</p>
           </Card>
       </CardWrapper>
 
