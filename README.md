@@ -6,7 +6,7 @@ Fetch the pokemons that answer following criterias:
 
 Get the Pokemons from the Poke Name list:
 
-[press here to display] https://ng-complete-guide-fe6b6.web.app/
+## press here to display https://ng-complete-guide-fe6b6.web.app/
 
 pokemon_names = [
 'Bulbasaur',
